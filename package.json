@@ -1,0 +1,24 @@
+{
+  "name": "npm-relock",
+  "version": "0.1.0",
+  "description": "Rewrite the package-lock.json file to keep module changes to project level modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ondoher/relock.git"
+  },
+  "keywords": [
+    "npm",
+    "relock",
+    "package-lock"
+  ],
+  "author": "Glenn Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ondoher/relock/issues"
+  },
+  "homepage": "https://github.com/Ondoher/relock#readme"
+}
