@@ -1,0 +1,12 @@
+{
+  "name": "symphony-client-app",
+  "private": true,
+  "version": "36.0.0",
+  "description": "Symphony client app",
+  "dependencies": {
+    "@symphony/a": "1.0.1",
+    "@symphony/b": "~1.1.3",
+    "c": "1.2.1",
+    "d": "~2.0.3"
+  }
+}

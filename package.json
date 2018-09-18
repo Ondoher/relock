@@ -1,8 +1,11 @@
 {
   "name": "npm-relock",
-  "version": "0.1.0",
-  "description": "Rewrite the package-lock.json file to keep module changes to project level modules",
+  "version": "0.1.11",
+  "description": "Rewrite the package-lock.json file to preserve module changes to project level modules",
   "main": "index.js",
+  "bin": {
+    "relock": ".bin/relock.js"
+  },  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

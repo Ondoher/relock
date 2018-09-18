@@ -1,0 +1,117 @@
+{
+  "name": "symphony-client-app",
+  "version": "36.0.0",
+  "lockfileVersion": 1,
+  "requires": {
+    "@symphony/a": "1.0.1",
+    "@symphony/b": "~1.1.3",
+    "c": "1.2.1",
+    "d": "~2.0.3"
+  },
+  "dependencies": {
+    "@symphony/a": {
+      "version": "1.0.1",
+      "requires": {
+        "x": "^3.0.0",
+        "y": "^2.0.2",
+        "z": "^2.0.0"
+      },
+      "dependencies": {
+        "z": {
+          "version": "2.0.10",
+          "requires": {},
+          "dependencies": {}
+        }
+      }
+    },
+    "@symphony/b": {
+      "version": "1.1.7",
+      "requires": {
+        "e": "1.2.1",
+        "d": "2.0.5",
+        "y": "^2.0.1",
+        "z": "~3.1.0"
+      },
+      "dependencies": {
+        "d": {
+          "version": "2.0.5",
+          "requires": {
+            "e": "1.2.1"
+          },
+          "dependencies": {}
+        },
+        "e": {
+          "version": "1.2.1",
+          "requires": {
+            "d": "~2.0.0"
+          },
+          "dependencies": {}
+        }
+      }
+    },
+    "c": {
+      "version": "1.2.1",
+      "requires": {
+        "e": "~1.0.0",
+        "z": "2.0.10"
+      },
+      "dependencies": {
+        "e": {
+          "version": "1.0.0",
+          "requires": {
+            "d": "~2.0.0"
+          },
+          "dependencies": {}
+        },
+        "z": {
+          "version": "2.0.10",
+          "requires": {},
+          "dependencies": {}
+        }
+      }
+    },
+    "d": {
+      "version": "2.0.3",
+      "requires": {
+        "e": "~1.0.0"
+      },
+      "dependencies": {
+        "e": {
+          "version": "1.2.1",
+          "requires": {
+            "d": "~2.0.0"
+          },
+          "dependencies": {}
+        }
+      }
+    },
+    "e": {
+      "version": "1.0.0",
+      "requires": {
+        "d": "~2.0.0"
+      },
+      "dependencies": {
+        "d": {
+          "version": "2.0.5",
+          "requires": {
+            "e": "1.2.1"
+          },
+          "dependencies": {}
+        }
+      }
+    },
+    "x": {
+      "version": "3.0.0",
+      "dependencies": {}
+    },
+    "y": {
+      "version": "2.0.2",
+      "requires": {},
+      "dependencies": {}
+    },
+    "z": {
+      "version": "3.1.0",
+      "dependencies": {}
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "symphony-client-app",
+  "version": "36.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "@symphony/a": {
+      "version": "1.0.1",
+      "requires": {
+        "x": "^3.0.0",
+        "y": "^2.0.2",
+        "z": "^2.0.0"
+      }
+    },
+    "@symphony/b": {
+      "version": "1.1.7",
+      "requires" : {
+        "e": "1.2.1",
+        "d": "2.0.5",
+        "y": "^2.0.1",
+        "z": "~3.1.0"
+      },
+      "dependencies": {
+        "z" : {
+          "version": "3.1.1"
+        },
+        "d" : {
+          "version": "2.0.5",
+          "requires" : {
+            "e": "1.2.1"
+          }
+        },
+        "e" : {
+          "version": "1.2.1",
+          "requires" : {
+            "d": "~2.0.0"
+          }
+        }
+      }
+    },
+    "c": {
+      "version": "1.2.1",
+      "requires" : {
+        "e": "~1.0.0",
+        "z": "2.0.10"
+      }
+    },
+    "d": {
+      "version": "2.0.4",
+      "requires" : {
+        "e": "1.2.0"
+      },
+      "dependencies": {
+        "e" : {
+          "version": "1.2.0",
+          "requires" : {
+            "d": "~2.0.0"
+          }
+        }
+      }
+    },
+    "e": {
+      "version": "1.0.1",
+      "requires" : {
+        "d": "~2.0.0"
+      }
+},
+    "z": {
+      "version": "2.0.10"
+    },
+    "y": {
+      "version": "2.0.2"
+    },
+    "x": {
+      "version": "3.0.0"
+    }
+  }
+}
