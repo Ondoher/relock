@@ -85,7 +85,7 @@ function getTreeSignature(tree) {
     return md5sum.digest('hex');
 }
 
-// Given a package-lock file, generate the full package dependency tree. 
+// Given a package-lock file, generate the full package dependency tree.
 // Each node in the tree is an object with these properties
 // * signature - the md5 hash of dependency tree
 // * name
@@ -115,7 +115,7 @@ function generateDependencyTree(root) {
             var checkPath = searchPath.slice();
             checkPath.push(name);
             var check = checkPath.join('|');
-            
+
             if (lockPaths.indexOf(check) != -1) {
                 found = check;
             } else if (searchPath.length === 0) {
@@ -220,7 +220,7 @@ function generateDependencyTree(root) {
             signature = getTreeSignature(nodeDependencies);
             node.signature = signature;
             node.dependencies = nodeDependencies;
-            
+
             dependencies.push(node);
 
         // add to global list, to be used when building relocked dependency tree
@@ -363,24 +363,33 @@ function relockTree(prevTree, curTree) {
 // hoist dependencies
 function flattenTree(tree) {
     var modules = [];
+    var moduleIndex = {};
     var flatTree = {};
 
     function buildIndexes(node, path) {
         node.dependencies.forEach(function(dependency) {
             var newPath = path.slice();
             var name = dependency.name + '|' + dependency.version + '|' + dependency.signature;
+            var module;
 
             newPath.push(dependency.name);
-            var module = {
-                name: dependency.name,
-                version: dependency.version,
-                signature: dependency.signature,
-                variant: name,
-                depth: path.length, 
-                path: newPath.join('|')
+            if (!moduleIndex[name]) {
+                module = {
+                    name: dependency.name,
+                    version: dependency.version,
+                    signature: dependency.signature,
+                    variant: name,
+                    depth: path.length,
+                    paths: [],
+                }
+                moduleIndex[name] = module;
+                modules.push(module);
+            } else {
+                module = moduleIndex[name];
             }
 
-            modules.push(module);
+            module.depth = Math.min(module.depth, path.length);
+            module.paths.push(newPath.join('|'));
             buildIndexes(dependency, newPath);
         });
     }
@@ -440,11 +449,15 @@ function flattenTree(tree) {
     }
 
     function hoistOne(module) {
-        add(module.path, module.variant)
+        module.paths.forEach(function(path) {
+            add(path, module.variant)
+        }, this);
     }
 
     function sortModules() {
         function compare(a, b) {
+
+        // first sort by depth
             var result = a.depth - b.depth;
 
             if (result !== 0) {
@@ -457,11 +470,18 @@ function flattenTree(tree) {
             console.log(b.path);
 */
 
-            var aPath = a.path.split('|');
+        // then sort by freuency of module use
+            var frequency = b.paths.length - a.paths.length;
+            if (frequency !== 0) {
+                return frequency;
+            }
+
+        // then sort alphabetically to get a predictable result
+            var aPath = a.paths[0].split('|');
             aPath.push(a.name);
             aPath = aPath.join('|');
 
-            var bPath = b.path.split('|');
+            var bPath = b.paths[0].split('|');
             bPath.push(b.name);
             bPath = bPath.join('|');
 
@@ -492,7 +512,7 @@ function flattenTree(tree) {
     }
 
     buildIndexes(tree, []);
-    hoist(); 
+    hoist();
 //    console.log(JSON.stringify(modules, null, '  '));
 
     console.log('HOISTED');
